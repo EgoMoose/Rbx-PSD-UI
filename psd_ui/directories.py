@@ -11,7 +11,7 @@ def EmptyFolder(path):
 
 def GetOutputPath(filename):
 	name = Path(filename).stem
-	path = Path("output/" + name)
+	path = Path("output/" + name + "/images")
 	path.mkdir(parents=True, exist_ok=True)
 	EmptyFolder(path)
 	return path

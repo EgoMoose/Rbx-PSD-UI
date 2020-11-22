@@ -1,8 +1,8 @@
 from frame import Frame 
 from psd_tools import PSDImage
-from upload import UploadImage
+from upload import TarmacSync
 
-FILE_FORMAT = "{0}_{1}.png"
+FILE_FORMAT = "img_{0}.png"
 
 def RecursiveFrame(frame, psd, imgFrames):
 	for layer in psd:
@@ -26,19 +26,19 @@ def main(filename, outputPath, contentPath, cookie):
 	RecursiveFrame(top, psd, imgFrames)
 
 	for i in range(len(imgFrames)):
-		name = FILE_FORMAT.format(outputPath.stem, i + 1)
+		name = FILE_FORMAT.format(i + 1)
 		imgPath = outputPath.as_posix() + "/" + name
 		imgFrames[i].layer.composite().save(imgPath)
-
-		if cookie:
-			assetid = UploadImage(imgPath)
-			# upload imgPath to site, get asset id
-			# imageFrames[i].instance["Image"] = assetid
 
 		if contentPath:
 			subPath = "/".join(contentPath.parts[-2:])
 			imgFrames[i].instance["Image"] = "rbxasset://" + subPath + "/" + name
 			imgFrames[i].layer.composite().save(contentPath.as_posix() + "/" + name)
+	
+	if cookie:
+		assetids = TarmacSync(outputPath, cookie)
+		for i in range(len(imgFrames)):
+			imgFrames[i].instance["Image"] = assetids[i]
 
 	json = open(outputPath.as_posix() + "/json.txt", "w")
 	json.write(top.ToJSON())

@@ -15,5 +15,5 @@ if args.upload:
 	if VerifyUsername(cookie):
 		process(args.psd, outputPath, None, cookie)
 else:
-	contentPath = directories.GetDebugPath(outputPath.stem)
+	contentPath = directories.GetDebugPath(outputPath.parent.stem)
 	process(args.psd, outputPath, contentPath, None)
