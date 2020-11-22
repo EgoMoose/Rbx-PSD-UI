@@ -1,4 +1,5 @@
 
 output
 psd_ui/__pycache__
-*.psd
+test_psd
+*.lock

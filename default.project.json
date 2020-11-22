@@ -1,0 +1,14 @@
+{
+	"name": "Rbx-PSD-UI",
+	"tree": {
+		"$className": "DataModel",
+		"ReplicatedStorage": {
+			"$className": "ReplicatedStorage",
+			"$path": "lua_src/ReplicatedStorage"
+		},
+		"ServerScriptService": {
+			"$className": "ServerScriptService",
+			"$path": "lua_src/ServerScriptService"
+		}
+	}
+}

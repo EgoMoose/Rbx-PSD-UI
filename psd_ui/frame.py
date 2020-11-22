@@ -5,11 +5,11 @@ INDENT = 4
 
 class Frame:
 	def __init__(self, layer):
-		className = instances.GetClassName(layer)
-		instance = getattr(instances, className)(layer)
-		instance["ClassName"] = className
+		classname = instances.GetClassName(layer)
+		instance = getattr(instances, classname)(layer)
 
 		self.layer = layer
+		self.classname = classname
 		self.instance = instance
 		self.children = []
 	
@@ -19,6 +19,7 @@ class Frame:
 	def ToDict(self):
 		return {
 			"Instance": self.instance,
+			"ClassName": self.classname,
 			"Children": [child.ToDict() for child in self.children]
 		}
 	
