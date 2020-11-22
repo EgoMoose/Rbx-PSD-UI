@@ -3,3 +3,4 @@ output
 psd_ui/__pycache__
 test_psd
 *.lock
+cookie.txt

@@ -11,9 +11,16 @@ args = parser.parse_args()
 outputPath = directories.GetOutputPath(args.psd)
 
 if args.upload:
-	cookie = input("Please provide the account cookie you want to upload these images with:\n")
-	if VerifyUsername(cookie):
+	cookie = directories.GetStoredCookie()
+	if not cookie:
+		cookie = input("Please provide the account cookie you want to upload these images with:\n")
+		if VerifyUsername(cookie):
+			process(args.psd, outputPath, None, cookie)
+	else:
+		# you can use a stored cookie if you don't want to constantly copy/paste
 		process(args.psd, outputPath, None, cookie)
+	print("PSD successfully processed and upload to Roblox complete.")
 else:
 	contentPath = directories.GetDebugPath(outputPath.parent.stem)
 	process(args.psd, outputPath, contentPath, None)
+	print("PSD successfully processed.")

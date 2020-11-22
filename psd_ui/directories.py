@@ -31,3 +31,9 @@ def GetDebugPath(name):
 	path.mkdir(parents=True, exist_ok=True)
 	EmptyFolder(path)
 	return path
+
+def GetStoredCookie():
+	cookieFile = Path("cookie.txt")
+	if cookieFile.is_file():
+		return open(cookieFile.as_posix(), "r").read()
+	return False

@@ -2,29 +2,17 @@ import re
 import requests
 import subprocess
 
-TARMAC_TOML = '''
-name = "{0}"
+TARMAC_TOML = '''name = "{0}"
 
 [[inputs]]
 glob = "{1}/*.png"
 codegen = true
 codegen-path = "{1}/assetids.lua"
-codegen-base-path = "{1}"
-'''
-
-HEADERS = {
-	"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:66.0) Gecko/20100101 Firefox/66.0",
-	"Accept": "application/json, text/plain, */*",
-	"Accept-Language": "en-US,en;q=0.5",
-	"Content-Type": "application/json;charset=utf-8",
-	"Origin": "https://www.roblox.com",
-	"X-CSRF-TOKEN": "",
-	"DNT": "1",
-}
+codegen-base-path = "{1}"'''
 
 def VerifyUsername(cookie):
 	try:
-		response = requests.get("https://www.roblox.com/game/GetCurrentUser.ashx", cookies={".ROBLOSECURITY": cookie}, headers=HEADERS)
+		response = requests.get("https://www.roblox.com/game/GetCurrentUser.ashx", cookies={".ROBLOSECURITY": cookie})
 		response = requests.get("https://api.roblox.com/users/" + response.text)
 		username = response.json().get("Username")
 		valid = input("The username assosiated with this cookie is " + username + ". Is this correct? (y/n) : ")
