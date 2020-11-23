@@ -11,7 +11,7 @@ Beyond that you will need the `psd_tools` [package](https://github.com/psd-tools
 
 ## Getting started
 
-Roblox PSD UI will take a `.psd` file and convert it into a format that can than be built in Roblox Studio. There are some limitations and things to be awared of so please see the limitations section listed below.
+Roblox PSD UI will take a `.psd` file and convert it into a format that can than be built in Roblox Studio. There are some limitations and things to be aware of so please see the limitations section listed below.
 
 An example of converting a psd to Roblox might look like this:
 
@@ -39,7 +39,7 @@ python psd_ui example.psd --upload
 
 This will prompt the user for a Roblox security cookie which tells tarmac which account to actually upload the images to.
 
-For users that don't want to copy paste a security cookie each time they can simple create a file under the project directory called `cookie.txt` and the program will pull the cookie from the file automatically.
+For users that don't want to copy paste a security cookie each time they can simply create a file under the project directory called `cookie.txt` and the program will pull the cookie from the file automatically.
 
 ## Limitations
 
@@ -64,3 +64,9 @@ This is an example psd that was imported into studio using this tool.
 <img src="readme_imgs/photoshop.png" width="800">
 <img src="readme_imgs/studio.png" width="400">
 <img src="readme_imgs/explorer.png" width="245">
+
+## Example video
+
+Watch this video to see a really quick example of me creating the above UI with this tool.
+
+https://www.youtube.com/watch?v=x_RaPDyoz7k
