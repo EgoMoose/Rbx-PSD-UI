@@ -12,7 +12,7 @@ CLASS_NAMES = {
 def GetClassName(layer):
 	return CLASS_NAMES.get(layer.kind, "ImageLabel")
 
-def Base(layer):
+def Frame(layer):
 	offset = layer.offset
 
 	if layer.parent:
@@ -27,12 +27,8 @@ def Base(layer):
 		"BackgroundTransparency": 1
 	}
 
-def Frame(layer):
-	instance = Base(layer)
-	return instance
-
 def ImageLabel(layer):
-	instance = Base(layer)
+	instance = Frame(layer)
 	instance["Image"] = True # This is set later, but for now we use as a flag that the instance has an image
 	return instance
 
@@ -42,7 +38,7 @@ def TextLabel(layer):
 	fillColor = style["FillColor"]["Values"]
 	strokeColor = style["StrokeColor"]["Values"]
 
-	instance = Base(layer)
+	instance = Frame(layer)
 	instance["Text"] = layer.text
 	instance["TextSize"] = int(style["FontSize"])
 	instance["TextColor3"] = ", ".join(map(str, [fillColor[1], fillColor[2], fillColor[3]]))
