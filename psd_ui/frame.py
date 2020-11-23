@@ -6,7 +6,8 @@ INDENT = 4
 class Frame:
 	def __init__(self, layer):
 		classname = instances.GetClassName(layer)
-		instance = getattr(instances, classname)(layer)
+		funcname = instances.GetClassFunc(layer)
+		instance = getattr(instances, funcname)(layer)
 
 		self.layer = layer
 		self.classname = classname

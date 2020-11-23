@@ -9,8 +9,27 @@ CLASS_NAMES = {
 	"type": "TextLabel",
 }
 
+FLAG_CLASS_NAMES = {
+	"TEXT_": "TextLabel",
+}
+
+FLAG_FUNCTIONS = {
+	"TEXT_": "RasterizedTextLabel",
+}
+
 def GetClassName(layer):
+	for key in FLAG_CLASS_NAMES:
+		if layer.name[:len(key)] == key:
+			return FLAG_CLASS_NAMES.get(key)
 	return CLASS_NAMES.get(layer.kind, "ImageLabel")
+
+def GetClassFunc(layer):
+	for key in FLAG_FUNCTIONS:
+		if layer.name[:len(key)] == key:
+			return FLAG_FUNCTIONS.get(key)
+	return CLASS_NAMES.get(layer.kind, "ImageLabel")
+
+# Non-flagged instances
 
 def Frame(layer):
 	offset = layer.offset
@@ -21,7 +40,7 @@ def Frame(layer):
 		offset = (x1 - x2, y1 - y2)
 	
 	return {
-		"Name": re.sub(r'[\W_]+', "", layer.name),
+		"Name": layer.name,
 		"Size": layer.size,
 		"Position": offset,
 		"BackgroundTransparency": 1
@@ -45,4 +64,13 @@ def TextLabel(layer):
 	instance["TextStrokeColor3"] = ", ".join(map(str, [strokeColor[1], strokeColor[2], strokeColor[3]]))
 	instance["TextTransparency"] = str(1 - fillColor[0])
 
+	return instance
+
+
+# Flagged instances
+
+def RasterizedTextLabel(layer):
+	instance = Frame(layer)
+	instance["Name"] = layer.name[5:]
+	instance["Text"] = "TextLabel"
 	return instance
