@@ -1,7 +1,7 @@
 import json
 import instances
 
-INDENT = 4
+INDENT = None
 
 class Frame:
 	def __init__(self, layer):
