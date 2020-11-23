@@ -7,7 +7,12 @@ In order to run this you will need:
 * [Python 3](https://www.python.org/)
 * [Tarmac](https://github.com/Roblox/tarmac)
 
-Beyond that you will need the `psd_tools` [package](https://github.com/psd-tools/psd-tools) which can easily be installed by running `pip install psd-tools` or by installing the `requirements.txt` under psd_ui folder in this repo.
+Beyond that you will need a few python packages:
+
+* [psd-tools](https://github.com/psd-tools/psd-tools)
+* [requests](https://pypi.org/project/requests/)
+
+You can install both of these by using the `requirements.txt` under the psd_ui folder.
 
 ## Getting started
 
