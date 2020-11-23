@@ -11,6 +11,7 @@ Beyond that you will need a few python packages:
 
 * [psd-tools](https://github.com/psd-tools/psd-tools)
 * [requests](https://pypi.org/project/requests/)
+* [pillow](https://pypi.org/project/Pillow/)
 
 You can install both of these by using the `requirements.txt` under the psd_ui folder.
 
