@@ -40,6 +40,6 @@ def main(filename, outputPath, contentPath, cookie):
 		for i in range(len(imgFrames)):
 			imgFrames[i].instance["Image"] = assetids[i]
 
-	json = open(outputPath.as_posix() + "/json.txt", "w")
+	json = open(outputPath.as_posix() + "/output.json", "w")
 	json.write(top.ToJSON())
 	json.close()
