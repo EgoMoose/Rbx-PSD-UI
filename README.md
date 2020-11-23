@@ -56,3 +56,11 @@ So to get around this you must use special flags in the layer name to let the to
 In the case of a text layer we flag it by naming it `TEXT_MyLayer`. This way the tool knows to instead convert this to a text object. None of the information like the content or color of the text will be carried over like you'd get if the file was created in photoshop, but that can be set by the developer once the UI has been imported into studio.
 
 There are plenty more examples of this I'm sure, but I haven't actually programmed anything in except the example I just described above. If you think you have a good flag then I would strongly suggest contributing it to this project for others to use as well!
+
+## Example
+
+This is an example psd that was imported into studio using this tool.
+
+<img src="readme_imgs/photoshop.png" width="800">
+<img src="readme_imgs/studio.png" width="400">
+<img src="readme_imgs/explorer.png" width="245">
