@@ -49,11 +49,11 @@ For users that don't want to copy paste a security cookie each time they can sim
 
 ## Limitations
 
-The most blarring limitation of this tool is that it does not work with layers that are not fully rasterized. This means any layers with effects such drop shadows or masks will have those effects ignored unless they are manually rasterized/merged into the layer. It's a bit annoying, but I think it's not an unreasonable limitation to work within.
+The most blaring limitation of this tool is that it does not work with layers that are not fully rasterized. This means any layers with effects such drop shadows or masks will have those effects ignored unless they are manually rasterized/merged into the layer. It's a bit annoying, but I think it's not an unreasonable limitation to work within.
 
 ## Work to be done
 
-Most image editting programs can export files to a `.psd` format; this is the reason I chose to make the tool work with `.psd` files. However, most of these programs do not match Adobe's format exactly.
+Most image editing programs can export files to a `.psd` format; this is the reason I chose to make the tool work with `.psd` files. However, most of these programs do not match Adobe's format exactly.
 
 One of the best examples of this are text objects. For example, say you created a text layer in GIMP and exported the project to a `.psd` file. In the conversion process GIMP would rasterize that text layer and it would lose any meaningful data about the text (e.g. the content, color, size, etc). This is a problem though because GIMP users using this tool still want `psd_ui` to recognize that text layer as a text object when they import their UI into studio.
 
