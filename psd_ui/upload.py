@@ -15,7 +15,7 @@ def VerifyUsername(cookie):
 		response = requests.get("https://www.roblox.com/game/GetCurrentUser.ashx", cookies={".ROBLOSECURITY": cookie})
 		response = requests.get("https://api.roblox.com/users/" + response.text)
 		username = response.json().get("Username")
-		valid = input("The username assosiated with this cookie is " + username + ". Is this correct? (y/n) : ")
+		valid = input("The username associated with this cookie is " + username + ". Is this correct? (y/n) : ")
 		return valid == "y"
 	except:
 		print("Something was wrong with the cookie provided. Ensure it's a valid account cookie.")
@@ -32,6 +32,8 @@ def TarmacSync(outputPath, cookie):
 	subprocess.run([
 		"tarmac", "sync", 
 		"--target", "roblox",
+		"--retry", "10",
+		"--retry-delay", "60",
 		"--auth", cookie
 	], cwd = parentPath.as_posix())
 
