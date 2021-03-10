@@ -1,4 +1,4 @@
 ## no version specifications
 psd-tools
-requirements
+requests
 Pillow
